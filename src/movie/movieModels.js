@@ -9,7 +9,10 @@ const movieSchema = new mongoose.Schema({
   actor: {
     type: String,
   },
-  //Other key for the challenge
+  genre: {
+    type: String,
+  },
+  //Other keys for the challenge
 });
 
 const Movie = mongoose.model("Movie", movieSchema);

@@ -14,6 +14,7 @@ exports.addMovie = async (movieObj) => {
 exports.listMovies = async () => {
   try {
     console.log(await Movie.find({}));
+    console.log("Here's our list!");
   } catch (error) {
     console.log(error);
   }
@@ -21,8 +22,24 @@ exports.listMovies = async () => {
 
 exports.deleteMovie = async (movieObj) => {
   try {
-    await Movie.deleteOne({ movieObj });
+    await Movie.deleteOne(movieObj);
     console.log(`Movie removed from our DB!`);
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+exports.updateMovie = async (movieObj) => {
+  try {
+    console.log(
+      await Movie.updateOne(
+        { title: movieObj.title },
+        { actor: movieObj.actor },
+        { genre: movieObj.genre },
+        { upsert: true }
+      )
+    );
+    console.log("We've update our DB!");
   } catch (error) {
     console.log(error);
   }
