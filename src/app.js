@@ -29,7 +29,6 @@ const app = async (args) => {
       break;
     default:
       console.log("Incorrect command");
-      break;
   }
 };
 
