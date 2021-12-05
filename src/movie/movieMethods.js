@@ -18,7 +18,6 @@ exports.listMovies = async () => {
   try {
     console.log(await Movie.find({}));
     console.log("Here's our list!");
-    mongoose.connection.close();
   } catch (error) {
     console.log(error);
   }
@@ -28,18 +27,17 @@ exports.deleteMovie = async (movieObj) => {
   try {
     await Movie.deleteOne(movieObj);
     console.log(`Movie removed from our DB!`);
-    mongoose.connection.close();
   } catch (error) {
     console.log(error);
   }
 };
-//CHECK FORM HERE!!
+//CHECK FORM HERE!! YOU GOT THIS!!
+
 exports.updateMovie = async (movieObj) => {
   try {
     await Movie.findByIdAndUpdate(movieObj);
     const movie = Movie.findById(movieObj);
     console.log(`${movie.title} is the new name of our movie!`);
-    mongoose.connection.close();
   } catch (error) {
     console.log(error);
   }
