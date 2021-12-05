@@ -33,11 +33,11 @@ exports.deleteMovie = async (movieObj) => {
 };
 //CHECK FORM HERE!! YOU GOT THIS!!
 
-exports.updateMovie = async (movieObj) => {
+exports.updateMovie = async (movieId, movieObj) => {
   try {
-    await Movie.findByIdAndUpdate(movieObj);
-    const movie = Movie.findById(movieObj);
-    console.log(`${movie.title} is the new name of our movie!`);
+    // const movie = Movie.findById(movieId);
+    console.log(await Movie.findByIdAndUpdate({ _id: movieId }, movieObj));
+    console.log(`is the new name of our movie!`);
   } catch (error) {
     console.log(error);
   }

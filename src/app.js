@@ -22,9 +22,8 @@ const app = async (args) => {
       break;
     case "update":
       updateMovie(
-        { title: args.title },
-        { actor: args.actor },
-        { genre: args.genre }
+        { _id: args._id },
+        { title: args.title, actor: args.actor, genre: args.genre }
       );
       break;
     default:
